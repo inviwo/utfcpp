@@ -9,8 +9,8 @@ add_library(${PROJECT_NAME} INTERFACE)
 include(GNUInstallDirs)
 
 target_include_directories(utf8cpp INTERFACE
-    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/source>"
-    $<INSTALL_INTERFACE:include>
+    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>"
+    $<INSTALL_INTERFACE:include/utf8cpp>
 )
 
 include(CMakePackageConfigHelpers)
@@ -44,5 +44,5 @@ install(FILES "${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
               "${PROJECT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake"
         DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/cmake)
 
-install(FILES ${PROJECT_SOURCE_DIR}/source/utf8.h DESTINATION include)
-install(DIRECTORY ${PROJECT_SOURCE_DIR}/source/utf8 DESTINATION include)
+install(FILES ${PROJECT_SOURCE_DIR}/utf8cpp/utf8.h DESTINATION include/utf8cpp)
+install(DIRECTORY ${PROJECT_SOURCE_DIR}/utf8cpp/utf8 DESTINATION include/utf8cpp)
